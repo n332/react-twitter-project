@@ -1,0 +1,11 @@
+.LeftSideBar{
+     /* Style LeftSideBar here */
+}
+.RightSideBar{
+    /* Style RightSideBar here */
+}
+.main{
+    border-right: 1px rgba(255, 255, 255, 0.214) solid;
+    border-left: 1px rgba(255, 255, 255, 0.214) solid;
+    height: 100svh;
+}
