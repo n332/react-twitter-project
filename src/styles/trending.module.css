@@ -44,7 +44,7 @@ button{
     top: 5px;
     left: 5px;
     padding-bottom: 5px;
-    border-bottom: #ccd7dd3d solid 0.2px;
+    border-top: #ccd7dd3d solid 0.2px;
     width: 98%;
     transition: background-color 0.5s ease;
     

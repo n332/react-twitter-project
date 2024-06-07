@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import styles from "../../styles/search.module.css"
+import { useDispatch } from 'react-redux';
+import { SearchingAction } from '../../Redux/store/slices/SearchingPostsSlices';
 
 const Search = () => {
     const [inputValue, setInputValue] = useState('');
 
+    const dispatch = useDispatch();
+
     const handleEnter = (event) => {
-        if (event.key === 'Enter') {
-           console.log(inputValue);
+        if (event.key === 'Enter' && inputValue.trim() !== '') {
+           dispatch(SearchingAction(inputValue));
         }
     }
     return (
