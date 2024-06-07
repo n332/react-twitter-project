@@ -6,7 +6,6 @@
 |   index.js
 |   reportWebVitals.js
 |   setupTests.js
-|   tree.txt
 |   
 +---Components
 |   +---LeftSideBar
