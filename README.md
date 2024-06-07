@@ -1,3 +1,4 @@
+## Project Structure   
 ```
 |   App.css
 |   App.js
@@ -12,13 +13,12 @@
 |   |       fileToRemove
 |   |       
 |   +---Main
-|   |       fileToRemove
+|   |       searching-posts.jsx
+|   |       trending-posts.jsx
 |   |       
 |   +---Posts
-|   |       fileToRemove
-|   |       
 |   \---RightSideBar
-|           Root.jsx
+|           RightSideBar.jsx
 |           Search.jsx
 |           Trending.jsx
 |           
@@ -37,5 +37,12 @@
 |               
 \---styles
         home.module.css
-
+        search.module.css
+        trending.module.css
 ```
+| Folder | Files |
+| ------ | ------ |
+| LeftSideBar | add the needed components and make  LeftSideBar.jsx their parent [[add to Pages/Home.jsx]]|
+| Main| searching-posts, searching-posts, profile,Home(feed)[[ router outlet]] [[add to Pages/Home.jsx]]|
+| RightSideBar| add the needed components and make  RightSideBar.jsx their parent [[add to Pages/Home.jsx]]|
+|Login| add login needed components here|
