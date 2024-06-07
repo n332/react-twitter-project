@@ -12,13 +12,12 @@
 |   |       fileToRemove
 |   |       
 |   +---Main
-|   |       fileToRemove
+|   |       searching-posts.jsx
+|   |       trending-posts.jsx
 |   |       
 |   +---Posts
-|   |       fileToRemove
-|   |       
 |   \---RightSideBar
-|           Root.jsx
+|           RightSideBar.jsx
 |           Search.jsx
 |           Trending.jsx
 |           
@@ -37,5 +36,7 @@
 |               
 \---styles
         home.module.css
+        search.module.css
+        trending.module.css
 
 ```
