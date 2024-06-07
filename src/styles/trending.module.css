@@ -1,0 +1,71 @@
+.TrendingContainer{
+    border: #ccd7dd3d solid 0.2px;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 20px;
+    
+}
+
+.Header{
+    position: relative;
+    top: 5px;
+    left: 10px;
+    padding-bottom: 5px;
+    border-bottom: #ccd7dd3d solid 0.2px;
+    font: 1.2rem "Fira Sans", sans-serif;
+    font-size: larger;
+    color: #E1E8ED;
+    width: 97%;
+    
+}
+
+li{
+    list-style-type: none;
+    margin: 8px;
+    padding: auto;
+    font: 1.2rem "Fira Sans", sans-serif;
+    color: #E1E8ED;
+    background-color: transparent;
+}
+button{
+    list-style-type: none;
+    margin: 8px;
+    padding: auto;
+    font: 1.2rem "Fira Sans", sans-serif;
+    color: #E1E8ED;
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+}
+
+.item {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    padding-bottom: 5px;
+    border-bottom: #ccd7dd3d solid 0.2px;
+    width: 98%;
+    transition: background-color 0.5s ease;
+    
+}
+span{
+    font-family: sans-serif;
+    color: #e1e8ed60;
+    font-size: small;
+    background-color: transparent;
+    padding-left: 20px;
+
+}
+
+
+
+.item:hover{
+    background-color: #e1e8ed3c;
+    border-radius: 10px;
+
+}
+
+a.Hashtag {
+    cursor: pointer;
+  }

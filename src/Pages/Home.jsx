@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "../styles/home.module.css"
+import RightSideBar from '../Components/RightSideBar/RightSideBar';
 
 const Home = () => {
     return (
@@ -10,8 +11,8 @@ const Home = () => {
             <div className={styles.main} style={{ flex: '60%' ,color:"white",textAlign:"center"}}>
                 Main
             </div>
-            <div className={styles.RightSideBar} style={{ flex: '25%',color:"white",textAlign:"center"}}>
-                RightSideBar
+            <div className={styles.RightSideBar} style={{ flex: '25%',color:"white"}}>
+                <RightSideBar></RightSideBar>
             </div>
         </div>
     );

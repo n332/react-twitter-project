@@ -1,0 +1,29 @@
+.searchContainer{
+
+    background-color: #000000;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 20px;
+    border: #ccd7dd3d solid 0.2px;
+    display: flex;
+}
+input::-webkit-input-placeholder {
+    color: #CCD7DD;
+    font: 1.2rem "Fira Sans", sans-serif;;
+}
+
+input{
+    border: none;
+    padding-left: 10px;
+    width: 70%;
+    color: #CCD7DD;
+    font-size: large;
+}
+input:focus{
+    outline: none;
+
+}
+input:focus::placeholder{
+    color: transparent;
+    
+}
