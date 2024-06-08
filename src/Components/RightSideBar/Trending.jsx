@@ -12,19 +12,19 @@ const Trending = () => {
                     <li>
                         <button className={styles.Hashtag} onClick={() => console.log("nav to API")}>#Item</button>
                     </li>
-                    <span>000 Posts</span><br/>
+                    <span className={styles.HashTagCount}>000 Posts</span><br/>
                 </div>
                 <div className={styles.item}>
                     <li>
                         <button className={styles.Hashtag} onClick={() => console.log("nav to API")}>#Item</button>
                     </li>
-                    <span>000 Posts</span><br/>
+                    <span className={styles.HashTagCount}>000 Posts</span><br/>
                 </div>
                 <div className={styles.item}>
                     <li>
                         <button className={styles.Hashtag} onClick={() => console.log("nav to API")}>#Item</button>
                     </li>
-                    <span>000 Posts</span><br/>
+                    <span className={styles.HashTagCount}>000 Posts</span><br/>
                 </div>
             </div>
         </div>
