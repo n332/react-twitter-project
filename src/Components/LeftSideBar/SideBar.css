@@ -45,6 +45,11 @@
   color: #e1e8ed !important;
   transition-duration: 250ms;
   text-decoration: none;
+  font-weight: 500;
+}
+
+.sideBarItemActive {
+  font-weight: bold;
 }
 
 .sideBarItem:hover {
@@ -53,7 +58,6 @@
 
 .sideBarItemText {
   font-size: 1.2rem;
-  font-weight: 500;
 }
 
 .sideBarItemIcon {
@@ -94,6 +98,7 @@
   transition-duration: 250ms;
   padding: 10px;
   cursor: pointer;
+  position: relative; /* Added to position dropdown relative to this container */
 }
 
 .sideBarProfileItem:hover {
@@ -131,4 +136,38 @@
 .sideBarProfileOptions {
   width: 20px;
   height: 20px;
+}
+
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+.dropup-content {
+  display: block;
+  position: absolute;
+  bottom: 0; /* Adjust to position the dropdown correctly */
+  left: 0;
+  transform: translateY(-80px);
+  background-color: black; /* Matching background color */
+  min-width: 280px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  border: 1px solid #444; /* Border color to match the theme */
+  border-radius: 8px; /* Rounded corners */
+  padding: 8px 0; /* Padding inside the dropup */
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 15px,
+    rgba(255, 255, 255, 0.15) 0px 0px 3px 1px;
+}
+
+.dropup-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropup-content a:hover {
+  background-color: #444; /* Hover color to match the theme */
 }

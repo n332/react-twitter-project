@@ -1,6 +1,51 @@
-import React from "react";
-import "./SideBar.css";
+import React, { useEffect, useState, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
+import './SideBar.css';
+
+const routes = [
+  { path: '/', name: 'Home', icon: 'home.png', alt: 'Sidebar Home tab' },
+  {
+    path: '/explore',
+    name: 'Explore',
+    icon: 'SI.png',
+    alt: 'Sidebar Explore tab',
+  },
+  {
+    path: '/bookmarks',
+    name: 'Bookmarks',
+    icon: 'bookmark.png',
+    alt: 'Sidebar Bookmarks tab',
+  },
+  {
+    path: '/notifications',
+    name: 'Notifications',
+    icon: 'notification.png',
+    alt: 'Sidebar Notifications tab',
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    icon: 'profile.png',
+    alt: 'Sidebar Profile tab Icon',
+  },
+];
+
 const SideBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropupRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (dropupRef.current && !dropupRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   return (
     <div className="sideBarContainer">
       <div className="sideBarSplitter">
@@ -12,50 +57,34 @@ const SideBar = () => {
               alt="Sidebar Twitter / X"
             />
           </div>
-          <a href="/home" className="sideBarItem">
-            <img
-              src="/Assets/home.png"
-              alt="Sidebar Home tab Icon"
-              className="sideBarItemIcon"
-            />
-            <span className="sideBarItemText">Home</span>
-          </a>
-          <a href="/explore" className="sideBarItem">
-            <img
-              src="/Assets/SI.png"
-              alt="Sidebar Explore tab Icon"
-              className="sideBarItemIcon"
-            />
-            <span className="sideBarItemText">Explore</span>
-          </a>
-          <a href="/bookmarks" className="sideBarItem">
-            <img
-              src="/Assets/bookmark.png"
-              alt="Sidebar Bookmarks tab Icon"
-              className="sideBarItemIcon"
-            />
-            <span className="sideBarItemText">Bookmarks</span>
-          </a>
-          <a href="/notifications" className="sideBarItem">
-            <img
-              src="/Assets/notification.png"
-              alt="Sidebar Notifications tab Icon"
-              className="sideBarItemIcon"
-            />
-            <span className="sideBarItemText">Notifications</span>
-          </a>
-          <a href="/profile" className="sideBarItem">
-            <img
-              src="/Assets/profile.png"
-              alt="Sidebar Home tab Icon"
-              className="sideBarItemIcon"
-            />
-            <span className="sideBarItemText">Profile</span>
-          </a>
+          {routes.map((route) => {
+            return (
+              <NavLink
+                key={'tab-route' + route.path}
+                to={route.path}
+                exact
+                className={({ isActive }) =>
+                  isActive ? 'sideBarItemActive sideBarItem' : 'sideBarItem'
+                }
+                activeClassName="sideBarItemActive"
+              >
+                <img
+                  src={'/Assets/' + route.icon}
+                  alt={route.alt}
+                  className="sideBarItemIcon"
+                />
+                <span className="sideBarItemText">{route.name}</span>
+              </NavLink>
+            );
+          })}
         </div>
         <div className="sideBarBottomContainer">
           <button className="post-button">Post</button>
-          <div className="sideBarProfileItem">
+          <div
+            ref={dropupRef}
+            onClick={() => setIsOpen(!isOpen)}
+            className="sideBarProfileItem"
+          >
             <img
               alt="Sidebar profile icon"
               src="/Assets/person1.jpeg"
@@ -71,6 +100,13 @@ const SideBar = () => {
               className="sideBarProfileOptions"
             />
           </div>
+          {isOpen && (
+            <div class="dropup">
+              <div class="dropup-content">
+                <a href="#">Log out @YoussefMarakshy</a>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
