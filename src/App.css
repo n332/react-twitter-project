@@ -2,4 +2,11 @@
 body {
   background-color: black;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
 }
+::-webkit-scrollbar {
+  display: none;
+}
+

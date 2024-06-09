@@ -1,11 +1,18 @@
-.LeftSideBar{
-     /* Style LeftSideBar here */
+.LeftSideBar {
+    background-color: black;
+    flex: 50%;
 }
-.RightSideBar{
-    /* Style RightSideBar here */
+
+.RightSideBar {
+    background-color: black;
+    flex: 50%;
 }
-.main{
-    border-right: 1px rgba(255, 255, 255, 0.214) solid;
-    border-left: 1px rgba(255, 255, 255, 0.214) solid;
-    height: 100svh;
+
+.main {
+    border-right: 1px solid rgba(255, 255, 255, 0.214);
+    border-left: 1px solid rgba(255, 255, 255, 0.214);
+    color: white;
+    flex: 100%;
+    height: 100vh;
 }
+

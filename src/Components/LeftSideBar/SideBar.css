@@ -1,9 +1,10 @@
 .sideBarContainer {
-  width: 25%;
+  width: 80%;
   padding-top: 1rem;
   display: flex;
   justify-content: end;
   padding-bottom: 10px;
+  height: 95vh;
 }
 
 .sideBarSplitter {
