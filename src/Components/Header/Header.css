@@ -1,0 +1,100 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border-bottom: 1px solid #6c757d; /* Equivalent to border-bottom border-secondary */
+  position: sticky;
+  top: 0;
+  background-color: #000; /* Match the background color */
+  z-index: 100; /* Ensure it stays above other content */
+}
+
+.link-container {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  padding: 1rem 0; /* Equivalent to padding from Bootstrap classes */
+  position: relative;
+  font-size: 1rem; /* Adjust font size as needed */
+  font-weight: 150; /* Default font weight */
+  font-family: Gill Sans, sans-serif;
+  color: #555;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0; /* Remove margin */
+}
+
+.link-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.link-container.active span {
+  color: white; /* Change color when active */
+  font-weight: bold; /* Increase font weight when active */
+}
+
+.link-container.active span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20%;
+  height: 3px;
+  background-color: #1DA1F2;
+}
+
+.settings-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  flex: 0 0 auto;
+  margin-left: 1rem; /* Add margin to create distance */
+  position: relative;
+  margin-right: 5px;
+}
+
+.settings-icon a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.settings-icon a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.settings-img {
+  filter: brightness(0) invert(1); /* Makes the icon appear white */
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%; /* Position below the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

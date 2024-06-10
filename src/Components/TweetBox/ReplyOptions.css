@@ -1,0 +1,62 @@
+.reply-options {
+    background-color: #000000;
+    border-radius: 16px;
+    padding: 15px;
+    position: absolute;
+    z-index: 1000;
+    width: 320px;
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+    top: 130px; /* Adjust this value to position the dropdown correctly */
+    left: -20px; /* Adjust this value to position the dropdown towards the sidebar */
+    border: 1px solid #000000; /* Border to match the design */
+  }
+  
+  .reply-header {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  
+  .reply-subheader {
+    font-size: 0.875rem;
+    color: #8899a6;
+    margin-bottom: 15px;
+  }
+  
+  .reply-option {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+    color: #0a7ec6; /* Ensure the text color is white */
+    font-size: 0.5rem;
+  }
+  
+  .reply-option:hover {
+    background-color: #222223;
+  }
+  
+  .reply-option i {
+    
+    color: #000000; /* Ensure the icon color is blue */
+    font-size: 1rem;
+    margin : 10px;
+  }
+  
+  .check-icon {
+    margin-left: auto;
+    color: #1da1f2; /* Ensure the check icon color is blue */
+  }
+  
+  .reply-option .text-primary {
+    color: #1da1f2; /* Ensure the primary text color is blue */
+  }
+  
+  .reply-options .reply-header,
+  .reply-options .reply-subheader {
+    padding: 0 12px; /* Ensure consistent padding */
+  }
+  

@@ -79,7 +79,7 @@ const SideBar = () => {
           })}
         </div>
         <div className="sideBarBottomContainer">
-          <button className="post-button">Post</button>
+          <button className="postButton">Post</button>
           <div
             ref={dropupRef}
             onClick={() => setIsOpen(!isOpen)}

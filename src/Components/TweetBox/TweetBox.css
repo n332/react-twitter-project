@@ -1,0 +1,103 @@
+/* Main container */
+.tweet-box {
+  display: flex;
+  border-bottom: 1px solid #2e2e2e;
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+  position: relative; /* Ensure relative positioning */
+}
+
+.user-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.tweet-content-container {
+  flex-grow: 1;
+}
+
+.tweet-textarea {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-size: 1.25rem;
+  resize: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.reply-info {
+  display: flex;
+  font-size: 0.875rem;
+  margin-top: 5px;
+  color: #1da1f2;
+}
+
+.reply-icon {
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.reply-text {
+  margin-left: 5px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.separator {
+  border: 0;
+  height: 1px;
+  background: #2e2e2e;
+  margin: 10px 0;
+}
+
+.tweet-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icons-container {
+  display: flex;
+  align-items: center;
+}
+
+.tweet-icon {
+  font-size: 1.5rem;
+  color: #1da1f2;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+.tweet-icon:hover {
+  color: #0d8ed9;
+}
+
+.tweet-icon.disabled {
+  color: #444;
+  cursor: not-allowed;
+}
+
+.post-button {
+  background-color: #1da1f2;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.post-button:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+.post-button:not(:disabled):hover {
+  background-color: #0d8ed9;
+}
