@@ -1,0 +1,102 @@
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+}
+
+.tweet {
+  background-color: #000;
+  border-top: 1px solid #2e2e2e;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 95%;
+  margin: 0 auto; /* Center the tweet horizontally */
+  transition: background-color 0.3s;
+  color: #fff; /* Ensure text is visible */
+  text-align: left;
+}
+
+.tweet:hover {
+  background-color: #1a1a1a;
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.tweet-user-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.tweet-user-info > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tweet-user-name {
+  font-weight: bold;
+  color: #fff; /* Ensure username is visible */
+  margin-bottom: 5px;
+}
+
+.tweet-user-handle {
+  color: #888;
+}
+
+.tweet-timestamp {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.tweet-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #fff; /* Ensure tweet text is visible */
+}
+
+.tweet-actions {
+  display: flex;
+  justify-content: space-between;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.tweet-action {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem; /* Decrease the gap between icons */
+  cursor: pointer;
+}
+
+.tweet-action i {
+  font-size: 20px;
+}
+
+.tweet-action i.liked {
+  color: #e0245e;
+}
+
+.tweet-action i:hover {
+  color: #1da1f2;
+}
+
+.green-tweet {
+  color: green;
+}
