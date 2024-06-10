@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import styles from "../../styles/search.module.css"
 import { useDispatch } from 'react-redux';
 import { SearchingAction } from '../../Redux/store/slices/SearchingPostsSlices';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
     const [inputValue, setInputValue] = useState('');
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleEnter = (event) => {
         if (event.key === 'Enter' && inputValue.trim() !== '') {
            dispatch(SearchingAction(inputValue));
+           navigate('/searching-posts');
+           
         }
+
     }
     return (
         <div className={styles.searchContainer}>

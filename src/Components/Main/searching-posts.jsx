@@ -15,6 +15,7 @@ const SearchingPosts = () => {
 
     return (
         <div>
+        {/* Post component here */}
         
         {SearchPostsArr ? (
             SearchPostsArr.length > 0 ? (
