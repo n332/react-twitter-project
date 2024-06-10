@@ -10,13 +10,11 @@ const Search = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleEnter = (event) => {
+    const handleEnter = async (event) => {
         if (event.key === 'Enter' && inputValue.trim() !== '') {
-           dispatch(SearchingAction(inputValue));
-           navigate('/searching-posts');
-           
-        }
-
+            await dispatch(SearchingAction(inputValue));
+            navigate('/searching-posts');     
+         }
     }
     return (
         <div className={styles.searchContainer}>

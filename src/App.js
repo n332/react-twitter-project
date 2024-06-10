@@ -6,6 +6,7 @@ import store from './Redux/store/store';
 import SearchingPosts from './Components/Main/searching-posts';
 import TrendingPosts from './Components/Main/trending-posts';
 import MainContent from './Components/MainContent/MainContent';
+import ProfileComponent from "./Components/Profile/Profile";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
             <Route index element={<MainContent />} />
             <Route path='trending-posts/:hashtag' element={<TrendingPosts />} />
             <Route path='searching-posts' element={<SearchingPosts />} />
+            {/* Nourhan components here */}
+            <Route path='/profile/:id' element={<ProfileComponent/>} />
           </Route>
         </Routes>
       </Provider>

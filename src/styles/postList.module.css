@@ -1,0 +1,144 @@
+.posts-container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    top: 400px;
+    padding: 1rem;
+    background-color: #000;
+    margin: auto;
+    right: 2%;
+  }
+  .red-heart {
+    color: red;
+  }
+  .emptyPosts {
+    text-align: center;
+  }
+  .emptyPosts p {
+    font-size: 25px;
+  }
+  .heart {
+    display: flex;
+    width: 1px;
+  }
+  
+  .tweet {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 7px;
+    right: 20%;
+    border-top:1px solid #1e1e1e;
+  }
+  
+  .tweet:hover {
+    background-color: #1e1e1e;
+    transition-duration: 250ms;
+  }
+  
+  .tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .profile-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+  
+  .tweet-user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tweet-user-info > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .tweet-user-name {
+    font-weight: bold;
+  }
+  
+  .tweet-user-handle {
+    color: #888;
+  }
+  
+  .tweet-timestamp {
+    color: #888;
+    font-size: 0.85rem;
+  }
+  
+  .tweet-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .tweet-image {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .tweet-actions {
+    display: flex;
+    justify-content: space-between;
+    color: #888;
+    /* margin-top: 0.5rem; */
+    width: 80%;
+    margin: auto;
+  }
+  .green-tweet {
+    color: green;
+  }
+  .tweet-action {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .tweet-action i {
+    font-size: 20px;
+  }
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+  }
+  .info .tweet-simple{
+    font-size: 15px;
+    color: #888;
+
+  }
+  .info img {
+    border-radius: 50%;
+    width: 30px; 
+    height: auto;
+  }
+  
+  .tweet-user-name {
+    color: white;
+  }
+  
+  .text-primary {
+    color: rgba(0, 149, 255, 0.993);
+  }
+  
+  a.active {
+    font-size: 20px;
+  }
+  
+  a.HashTag {
+    color: blue;
+    cursor: pointer;
+  }
+  
+  a.HashTag:active {
+    color: purple;
+  }
+  

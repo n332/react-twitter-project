@@ -1,0 +1,195 @@
+.container {
+    background-color: black;
+    position: fixed;
+    display: block;
+    bottom: 0;
+    top: 0;
+    left: 45%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .imageTop,
+  .info img {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+  }
+  .tweet-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .info img {
+    margin-top: 2%;
+    border-radius: 100%;
+    top: 150px;
+    left: 10%;
+    width: 10%;
+    height: auto;
+  }
+  
+  .editPro p {
+    display: flex;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top: 240px;
+    right: 20%;
+    background-color: #252424;
+    color: #ffff;
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  .infoo {
+    
+    line-height: 0;
+    display: inline-block;
+    position: absolute;
+    top: 240px;
+    left: 4%;
+    text-align: center;
+    font-size: 15px;
+    color: gray;
+  }
+  
+  .infoo h4 {
+    font-size: 20px;
+    color: #ffff;
+  }
+  
+  .navbar ul {
+    position: absolute;
+    display: flex;
+    top: 350px;
+    font-size: 18px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0px 40px; 
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #e1e8ed;
+    font-weight: bold;
+    padding-bottom: 10px; 
+    border-bottom: 2px solid transparent; 
+    transition: border-color 0.3s; 
+}
+
+.navbar a:hover {
+    color: #fff;
+    border-color: #fff; 
+}
+
+  .posts {
+    overflow-y: auto;
+  }
+  
+  .custom-class {
+    background-color: #252424;
+  }
+  .popup {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  
+  .popupContent {
+    background-color: #252424;
+    padding: 20px;
+    color: #ffffff;
+    width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  
+  .popupContent h4 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .popupContent div {
+    margin-bottom: 15px;
+  }
+  
+.inputContainer {
+  width: 100%;
+  position: relative;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+.inputContainer input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #65778686;
+  color: #ffffff;
+  outline: none;
+}
+.inputContainer label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  pointer-events: none;
+  transition: transform 0.3s, font-size 0.3s;
+  transform: translateY(-50%) translateY(-10px); /* Initially moved up */
+}
+
+.inputContainer input:focus + label,
+.inputContainer input:not(:placeholder-shown) + label {
+  transform: translateY(-50%) translateY(-10px);
+  color: white;
+}
+
+  
+  .popupContent button {
+    background-color: #1da1f2;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    width: 95%;
+  }
+  
+  .popupContent button:hover {
+    background-color: #0f91db;
+  }
+  
