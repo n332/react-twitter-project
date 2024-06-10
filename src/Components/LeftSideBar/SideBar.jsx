@@ -46,6 +46,7 @@ const SideBar = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
   return (
     <div className="sideBarContainer">
       <div className="sideBarSplitter">
@@ -57,26 +58,22 @@ const SideBar = () => {
               alt="Sidebar Twitter / X"
             />
           </div>
-          {routes.map((route) => {
-            return (
-              <NavLink
-                key={'tab-route' + route.path}
-                to={route.path}
-                exact
-                className={({ isActive }) =>
-                  isActive ? 'sideBarItemActive sideBarItem' : 'sideBarItem'
-                }
-                activeClassName="sideBarItemActive"
-              >
-                <img
-                  src={'/Assets/' + route.icon}
-                  alt={route.alt}
-                  className="sideBarItemIcon"
-                />
-                <span className="sideBarItemText">{route.name}</span>
-              </NavLink>
-            );
-          })}
+          {routes.map((route) => (
+            <NavLink
+              key={'tab-route' + route.path}
+              to={route.path}
+              className={({ isActive }) =>
+                isActive ? 'sideBarItemActive sideBarItem' : 'sideBarItem'
+              }
+            >
+              <img
+                src={'/Assets/' + route.icon}
+                alt={route.alt}
+                className="sideBarItemIcon"
+              />
+              <span className="sideBarItemText">{route.name}</span>
+            </NavLink>
+          ))}
         </div>
         <div className="sideBarBottomContainer">
           <button className="postButton">Post</button>
@@ -101,8 +98,8 @@ const SideBar = () => {
             />
           </div>
           {isOpen && (
-            <div class="dropup">
-              <div class="dropup-content">
+            <div className="dropup">
+              <div className="dropup-content">
                 <a href="#">Log out @YoussefMarakshy</a>
               </div>
             </div>
