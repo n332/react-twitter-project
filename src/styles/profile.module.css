@@ -4,11 +4,13 @@
     display: block;
     bottom: 0;
     top: 0;
-    left: 45%;
+    left: 50%;
     transform: translateX(-50%);
-    width: 40%;
+    width: 45%;
     height: 100%;
     overflow-y: auto;
+    border-right: 1px rgba(255, 255, 255, 0.214) solid;
+    border-left: 1px rgba(255, 255, 255, 0.214) solid;
   }
   
   .imageTop,

@@ -1,31 +1,19 @@
-// PostList.jsx
-import React, { useState } from 'react';
-import style from '../../styles/postList.module.css';
+// PostList.js
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart, faRepeat } from '@fortawesome/free-solid-svg-icons'; 
-import { Helmet } from 'react-helmet';
+import { faHeart, faRepeat } from '@fortawesome/free-solid-svg-icons';
+import style from '../../styles/postList.module.css';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+
 
 const PostList = ({ posts, toggleLike, isRetweeted }) => {
-  const [likedTweets, setLikedTweets] = useState({});
-
-  const handleToggleLike = async (postId) => {
-    await toggleLike(postId);
-    
-    setLikedTweets(prevState => ({
-      ...prevState,
-      [postId]: !prevState[postId] 
-    }));
-  };
-
-  if (!posts) {
-    return <div>Loading...</div>; 
+  if (!posts || posts.length === 0) {
+    return <div className={style["no-post"]}>No posts found.</div>;
   }
 
   return (
     <div className={style["posts-container"]}>
-      <Helmet>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-      </Helmet>
       {posts.map((tweet) => (
         <div key={tweet._id} className={style["tweet"]}>
           <div className={style["tweet-header"]}>
@@ -33,7 +21,7 @@ const PostList = ({ posts, toggleLike, isRetweeted }) => {
               <div>
                 <div className={style.info}>
                   <img src={tweet.author?.profile?.avatar || ''} alt="Profile Avatar" />
-                  <span className={style["tweet-user-name"]}>{tweet.author.profile?.name}  <span className={style["tweet-simple"]}>@twitter</span></span> 
+                  <span className={style["tweet-user-name"]}>{tweet.author.profile?.name}  <span className={style["tweet-simple"]}>@twitter</span></span>
                 </div>
               </div>
             </div>
@@ -43,16 +31,27 @@ const PostList = ({ posts, toggleLike, isRetweeted }) => {
           </div>
           <div className={style["tweet-actions"]}>
             <span className={style["tweet-action"]}>
-              <i className="material-icons">chat_bubble_outline</i> {tweet.comments.length}
+              <ChatBubbleOutlineIcon /> {tweet.comments.length}
             </span>
             <span className={style["tweet-action"]}>
-              <FontAwesomeIcon icon={faRepeat} className="p-6" onClick={() => isRetweeted(tweet._id)} /> {tweet.retweets.length}
+              <FontAwesomeIcon
+                icon={faRepeat}
+                className={`${style["retweet-icon"]} ${tweet.isRetweeted ? style["retweet-green"] : ''}`}
+                onClick={() => isRetweeted(tweet._id)}
+              />
+              {tweet.retweets.length}
             </span>
             <span className={style["tweet-action"]}>
-              <FontAwesomeIcon icon={faHeart} style={{ color: likedTweets[tweet._id] ? 'red' : 'white' }} onClick={() => handleToggleLike(tweet._id)} /> {tweet.likes.length}
+              <FontAwesomeIcon
+                icon={faHeart}
+                style={{ color: tweet.isLiked ? 'red' : 'white' }}
+                onClick={() => toggleLike(tweet._id)}
+              />
+              {tweet.likes.length}
+
             </span>
             <span className={style["tweet-action"]}>
-              <i className="material-icons">visibility</i> {tweet.views}
+              <VisibilityIcon /> {tweet.views}
             </span>
           </div>
         </div>

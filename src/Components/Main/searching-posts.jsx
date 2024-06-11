@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SearchingAction } from '../../Redux/store/slices/SearchingPostsSlices';
-import style from "../../styles/postList.module.css";
+import style from "../../styles/post-temp.module.css";
 import PostsTemp from '../Posts/PostsTemp';
 import { Helmet } from 'react-helmet';
 
@@ -25,7 +25,7 @@ const SearchingPosts = () => {
     
 
     return (
-        <div>        
+        <div style={divStyle}>        
         {loading=== false && SearchPostsArr? ( //check if dispatch finished (loading = false) & array found
             SearchPostsArr.length > 0 ? ( //check if the  SearchPostsArr>0
                 SearchPostsArr.map((tweet) => { //display the data
@@ -54,3 +54,13 @@ const SearchingPosts = () => {
 }
 
 export default SearchingPosts;
+
+
+const divStyle ={
+    height:'0',
+    backgroundColor:"red",
+    top:0,
+    borderRight: "1px rgba(255, 255, 255, 0.214) solid",
+    borderLeft: "1px rgba(255, 255, 255, 0.214) solid"
+
+}

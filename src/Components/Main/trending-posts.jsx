@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TrendingPostsAction } from '../../Redux/store/slices/TrendingPostsSlice';
-import style from "../../styles/postList.module.css";
+import style from "../../styles/post-temp.module.css";
 import PostsTemp from '../Posts/PostsTemp';
 import { Helmet } from 'react-helmet';
 
@@ -16,7 +16,7 @@ const TrendingPosts = () => {
     },[dispatch])
 
     return (
-        <div>
+        <div style={divStyle} >
             {/* Post component here */}
             {TrendingPostsArr.map((tweet) => {
                     return (
@@ -37,3 +37,14 @@ const TrendingPosts = () => {
 }
 
 export default TrendingPosts;
+
+
+
+const divStyle ={
+    height:'0',
+    backgroundColor:"red",
+    top:0,
+    borderRight: "1px rgba(255, 255, 255, 0.214) solid",
+    borderLeft: "1px rgba(255, 255, 255, 0.214) solid"
+
+}

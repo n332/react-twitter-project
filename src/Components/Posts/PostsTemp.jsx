@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
-import style from "../../styles/postList.module.css";
+import style from "../../styles/post-temp.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faRepeat } from '@fortawesome/free-solid-svg-icons'; 
+import axios from 'axios';
 
 const PostsTemp = (props) => {
     let {tweet} = props
 
     const [likedTweets, setLikedTweets] = useState({});
+    const [post, setPost] = useState(tweet); // Add a state for the post
 
     const isRetweeted =()=>{
         console.log("isRetweeted invoked");
     }
-    const handleToggleLike=()=>{
-        console.log("handleToggleLike invoked");
+    const handleToggleLike = async (id) => {
+        const userId = '6643a278fdc6db9e29db2e81'; // Replace this with the actual user ID
+        await toggleLike(id, userId, post, setPost);
     }
     
     // console.log(tweet);
@@ -50,3 +53,42 @@ const PostsTemp = (props) => {
 }
 
 export default PostsTemp;
+
+
+const likePost = async (postId, userId, post, setPost) => {
+  try {
+    const response = await axios.post(`http://localhost:3000/api/tweets/tweet/${postId}/like`, { likerId: userId });
+    if (response.status === 200) {
+      const updatedPost = { ...post, isLiked: true, likes: post.likes.length + 1 };
+      setPost(updatedPost);
+    }
+  } catch (error) {
+    console.error('Error liking post:', error);
+  }
+};
+
+const unlikePost = async (postId, userId, post, setPost) => {
+  try {
+    const response = await axios.post(`http://localhost:3000/api/tweets/tweet/${postId}/unlike`, { userId });
+    if (response.status === 200) {
+      const updatedPost = { ...post, isLiked: false, likes: post.likes.length - 1 };
+      setPost(updatedPost);
+    }
+  } catch (error) {
+    console.error('Error unliking post:', error);
+  }
+};
+
+export const toggleLike = async (postId, userId, post, setPost) => {
+  try {
+    const isLiked = post.likes.includes(userId);
+    if (isLiked) {
+      await unlikePost(postId, userId, post, setPost);
+    } else {
+      await likePost(postId, userId, post, setPost);
+    }
+  } catch (error) {
+    console.error('Error toggling like:', error);
+  }
+};
+

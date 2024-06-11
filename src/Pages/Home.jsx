@@ -12,7 +12,7 @@ const Home = () => {
             <div className={styles.main} style={{ flex: '30%' ,color:"white",textAlign:"center"}}>
             <Outlet />
             </div>
-            <div className={styles.RightSideBar} style={{ flex: '15%',color:"white"}}>
+            <div className={styles.RightSideBar} style={{ flex: '10%',color:"white"}}>
                 <RightSideBar></RightSideBar>
             </div>
         </div>
