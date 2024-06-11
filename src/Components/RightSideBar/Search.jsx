@@ -12,8 +12,9 @@ const Search = () => {
 
     const handleEnter = async (event) => {
         if (event.key === 'Enter' && inputValue.trim() !== '') {
+            navigate('/searching-posts'); 
             await dispatch(SearchingAction(inputValue));
-            navigate('/searching-posts');     
+                
          }
     }
     return (
