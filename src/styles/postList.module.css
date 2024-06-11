@@ -8,6 +8,15 @@
     margin: auto;
     right: 2%;
   }
+  .no-post{
+    display: flex;
+    position: relative;
+    top: 400px;
+    margin: auto;
+    padding: 20%;
+    left: 20%;
+
+  }
   .red-heart {
     color: red;
   }
@@ -140,5 +149,14 @@
   
   a.HashTag:active {
     color: purple;
+  }
+  .retweet-icon {
+    
+    color: #888; 
+    margin-right: 5px; 
+  }
+  
+  .retweet-green {
+    color: green;
   }
   

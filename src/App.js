@@ -1,3 +1,5 @@
+// App.jsx
+import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home';
@@ -13,28 +15,24 @@ function App() {
   return (
     <BrowserRouter>
       <Provider store={store}>
-      <div style={{ display: 'flex' }}>
-      <div className={styles.LeftSideBar} style={{color:"white"}}>
-                  <SideBar />
-            </div>
-            <div className={styles.main} style={{color:"white",textAlign:"center"}}>
-                <SearchingPosts></SearchingPosts>
-          
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/profile/:id' element={<ProfileComponent />} />
-          </Routes>
-        </div>
-        <div className={styles.RightSideBar} style={{color:"white"}}>
-                <RightSideBar></RightSideBar>
-            </div>
+        <div style={{ display: 'flex' }}>
+          <div className={styles.LeftSideBar} style={{color:"white"}}>
+            <SideBar />
+          </div>
+          <div className={styles.main} style={{color:"white",textAlign:"center"}}>
+            <SearchingPosts></SearchingPosts>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/profile/:id' element={<ProfileComponent />} />
+            </Routes>
+          </div>
+          <div className={styles.RightSideBar} style={{color:"white"}}>
+            <RightSideBar></RightSideBar>
+          </div>
         </div>
       </Provider>
-      
     </BrowserRouter>
-
   );
-
 }
 
 export default App;

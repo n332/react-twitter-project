@@ -1,3 +1,4 @@
+// ProfileComponent.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom'; 
 import axios from 'axios';
@@ -10,7 +11,8 @@ import MyPostsComponent from './myPosts';
 const ProfileComponent = () => {
   const { id } = useParams();
   const [user, setUser] = useState(null);
-  const [as, setAs] = useState('');
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [activeTab, setActiveTab] = useState('myPosts');
 
@@ -19,7 +21,8 @@ const ProfileComponent = () => {
       try {
         const response = await axios.get(`http://localhost:3000/api/users/${id}`);
         setUser(response.data);
-        setAs(response.data.profile.name);
+        setName(response.data.profile.name);
+        setUsername(response.data.username);
       } catch (error) {
         console.error('Error fetching user:', error);
       }
@@ -38,9 +41,21 @@ const ProfileComponent = () => {
     setShowPopup(false);
   };
 
-  const saveChanges = () => {
-    console.log('Saving changes...');
-    closePopup();
+  const saveChanges = async () => {
+    try {
+      const response = await axios.put(`http://localhost:3000/api/users/${id}`, { 
+        profile: { 
+          name: name,
+          username: username
+        } 
+      });
+      if (response.status === 200) {
+        setUser({ ...user, profile: { ...user.profile, name: name } });
+        closePopup();
+      }
+    } catch (error) {
+      console.error('Error saving changes:', error);
+    }
   };
 
   const handleTabClick = (tabName) => {
@@ -61,7 +76,7 @@ const ProfileComponent = () => {
               <p>&#64;<em>{user.username}</em></p>
             </div>
             <div className={styles.editPro}>
-              <p className={`${styles.btn} ${styles.textLight}`} onClick={openPopup}>set up Profile</p>
+              <p className={`${styles.btn} ${styles.textLight}`} onClick={openPopup}>Set up Profile</p>
             </div>
             {showPopup && (
               <div className={styles.popup}>
@@ -69,12 +84,12 @@ const ProfileComponent = () => {
                   <span className={styles.close} onClick={closePopup}>&times;</span>
                   <h4>Edit Profile</h4>
                   <div className={styles.inputContainer}>
-                    <input type="text" id="name" placeholder="" value={as} onChange={e => setAs(e.target.value)} />
-                    <label htmlFor="name">Name</label>
+                    <input type="text" placeholder="" value={name} onChange={e => setName(e.target.value)} />
+                    <label>Name</label>
                   </div>
                   <div className={styles.inputContainer}>
-                    <input type="text" id="username" placeholder="" value={user.username} />
-                    <label htmlFor="username">Username</label>
+                    <input type="text" placeholder="" value={username} onChange={e => setUsername(e.target.value)} />
+                    <label>Username</label>
                   </div>
                   <button className={styles.button} onClick={saveChanges}>Save</button>
                 </div>
@@ -99,10 +114,10 @@ const ProfileComponent = () => {
             </ul>
           </nav>
           
-          {activeTab === 'myPosts' && <MyPostsComponent id={id} />}
+          {activeTab === 'myPosts' && <MyPostsComponent userId={id}  />}
           {activeTab === 'highlights' && <MyHighlights />}
           {activeTab === 'media' && <MyMedia />}
-          {activeTab === 'myLikes' && <MyLikesComponent id={id} />}
+          {activeTab === 'myLikes' && <MyLikesComponent userId={id} />}
         </>
       )}
     </div>
