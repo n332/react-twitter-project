@@ -30,6 +30,8 @@ const TrendingPosts = () => {
                 }                
                 )}
             
+            {console.log(TrendingPostsArr)}
+            
         </div>
     );
 }

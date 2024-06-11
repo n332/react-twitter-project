@@ -15,13 +15,11 @@ const SearchingSlice = createSlice({
     initialState:{SearchingArr:[]},
     extraReducers:(builder)=>{
         builder.addCase(SearchingAction.fulfilled,(state,action)=>{
+            state.SearchingArr = []
             state.SearchingArr = action.payload
 
         })
-        builder.addCase(SearchingAction.pending,(state,action)=>{
-            state.SearchingArr = undefined
 
-        })
     }
 })
 

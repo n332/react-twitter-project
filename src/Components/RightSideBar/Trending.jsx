@@ -15,10 +15,17 @@ const Trending = () => {
         dispatch(TrendingListAction());
     },[dispatch])
 
-
-    const handelClick = (hashtag)=>{
+    const performAction = (hashtag) => {
         dispatch(TrendingPostsAction(hashtag));
         navigate(`trending-posts/${hashtag}`);
+    }
+
+
+
+    const handelClick = (hashtag)=>{
+        performAction (hashtag);
+        performAction (hashtag);
+        
 
     }
 
