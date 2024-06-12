@@ -1,19 +1,29 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchBookmarks, removeBookmark } from '../../Redux/store/slices/bookmarksSlice';
+import {
+  fetchBookmarks,
+  removeBookmark,
+} from '../../Redux/store/slices/bookmarksSlice';
 import './Bookmarks.css';
+import useUserAuth from '../../Pages/Login/useUserAuth';
 
 const Bookmarks = () => {
   const dispatch = useDispatch();
-  const { items: bookmarks, status, error } = useSelector((state) => state.bookmarks);
-  const userId = '6643a278fdc6db9e29db2e81';
-  const username = 'Abdullah2019032'; // Replace with the actual username
+  const {
+    items: bookmarks,
+    status,
+    error,
+  } = useSelector((state) => state.bookmarks);
+  const { user } = useUserAuth();
+  const userId = user?.id;
+  const username = user?.username; // Replace with the actual username
+  // console.log(userId, username);
 
   useEffect(() => {
-    if (status === 'idle') {
+    if (status === 'idle' && userId) {
       dispatch(fetchBookmarks(userId));
     }
-  }, [status, dispatch, userId]);
+  }, [status, dispatch, user]);
 
   const handleRemoveBookmark = (tweetId) => {
     dispatch(removeBookmark({ tweetId, userId }));
@@ -35,19 +45,26 @@ const Bookmarks = () => {
       {status === 'loading' && <div>Loading...</div>}
       {status === 'failed' && <div>{error}</div>}
       {bookmarks.map((tweet) => {
+        console.log(tweet);
         const commentsLength = tweet.comments ? tweet.comments.length : 0;
         const retweetsLength = tweet.retweets ? tweet.retweets.length : 0;
         const likesLength = tweet.likes ? tweet.likes.length : 0;
         const authorProfile = tweet.author?.profile || {};
         const authorName = authorProfile.name || 'Unknown';
         const authorUsername = tweet.author?.username || 'unknown';
-        const createdAt = tweet.createdAt ? new Date(tweet.createdAt).toLocaleString() : 'Invalid Date';
+        const createdAt = tweet.createdAt
+          ? new Date(tweet.createdAt).toLocaleString()
+          : 'Invalid Date';
 
         return (
           <div key={tweet._id} className="tweet">
             <div className="tweet-header">
               {authorProfile.avatar && (
-                <img src={authorProfile.avatar} className="profile-img" alt="Profile" />
+                <img
+                  src={authorProfile.avatar}
+                  className="profile-img"
+                  alt="Profile"
+                />
               )}
               <div className="tweet-user-info">
                 <div>
@@ -67,16 +84,27 @@ const Bookmarks = () => {
             </div>
             <div className="tweet-actions">
               <span className="tweet-action" title="Reply">
-                <i className="material-icons">chat_bubble_outline</i> {commentsLength}
+                <i className="material-icons">chat_bubble_outline</i>{' '}
+                {commentsLength}
               </span>
               <span className="tweet-action" title="Retweet">
                 <i className="material-icons">repeat</i> {retweetsLength}
               </span>
               <span className="tweet-action" title="Like">
-                <i className={`material-icons ${tweet.likes?.includes(userId) ? 'liked' : ''}`}>favorite</i> {likesLength}
+                <i
+                  className={`material-icons ${
+                    tweet.likes?.includes(userId) ? 'liked' : ''
+                  }`}
+                >
+                  favorite
+                </i>{' '}
+                {likesLength}
               </span>
               <span className="tweet-action" title="Bookmark">
-                <i className="material-icons" onClick={() => handleRemoveBookmark(tweet._id)}>
+                <i
+                  className="material-icons"
+                  onClick={() => handleRemoveBookmark(tweet._id)}
+                >
                   bookmark
                 </i>
               </span>

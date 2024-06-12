@@ -69,6 +69,7 @@
 .sideBarItemIcon {
   width: 28px;
   height: 28px;
+  margin-top: 15px;
   background-color: transparent;
 }
 
@@ -90,7 +91,6 @@
   font-size: 18px;
   transition-duration: 250ms;
   height: 3.7rem;
-  
 }
 
 .post-button:hover {
