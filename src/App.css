@@ -1,7 +1,6 @@
-
 body {
   background-color: black;
-  font-family: 'Arial','Roboto','Helvetica','Segoe UI';
+  font-family: 'Arial', 'Roboto', 'Helvetica', 'Segoe UI';
 }
 ::-webkit-scrollbar {
   display: none;

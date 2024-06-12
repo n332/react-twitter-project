@@ -1,44 +1,47 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './SideBar.css';
-
-const routes = [
-  { path: '/', name: 'Home', icon: 'home.png', alt: 'Sidebar Home tab' },
-  {
-    path: '/explore',
-    name: 'Explore',
-    icon: 'SI.png',
-    alt: 'Sidebar Explore tab',
-  },
-  {
-    path: '/bookmarks',
-    name: 'Bookmarks',
-    icon: 'bookmark.png',
-    alt: 'Sidebar Bookmarks tab',
-  },
-  {
-    path: '/notifications',
-    name: 'Notifications',
-    icon: 'notification.png',
-    alt: 'Sidebar Notifications tab',
-  },
-  {
-    path: '/profile/6643a278fdc6db9e29db2e81',
-    name: 'Profile',
-    icon: 'profile.png',
-    alt: 'Sidebar Profile tab Icon',
-  },
-];
+import useUserAuth from '../../Pages/Login/useUserAuth';
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropupRef = useRef(null);
+  const navigate = useNavigate();
+  const { user, logout } = useUserAuth();
 
   const handleClickOutside = (event) => {
     if (dropupRef.current && !dropupRef.current.contains(event.target)) {
-      setIsOpen(false);
+      //setIsOpen(false);
     }
   };
+
+  const routes = [
+    { path: '/', name: 'Home', icon: 'home.png', alt: 'Sidebar Home tab' },
+    // {
+    //   path: '/explore',
+    //   name: 'Explore',
+    //   icon: 'SI.png',
+    //   alt: 'Sidebar Explore tab',
+    // },
+    {
+      path: '/bookmarks',
+      name: 'Bookmarks',
+      icon: 'bookmark.png',
+      alt: 'Sidebar Bookmarks tab',
+    },
+    // {
+    //   path: '/notifications',
+    //   name: 'Notifications',
+    //   icon: 'notification.png',
+    //   alt: 'Sidebar Notifications tab',
+    // },
+    {
+      path: '/profile/' + user?.id,
+      name: 'Profile',
+      icon: 'profile.png',
+      alt: 'Sidebar Profile tab Icon',
+    },
+  ];
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -84,12 +87,12 @@ const SideBar = () => {
           >
             <img
               alt="Sidebar profile icon"
-              src="/Assets/person1.jpeg"
+              src={user?.profile?.avatar ?? '/Assets/profile.png'}
               className="sideBarProfileAvatar"
             />
             <div className="sideBarProfileData">
-              <div className="sideBarProfileName">Youssef</div>
-              <div className="sideBarProfileUsername">@Youssef</div>
+              <div className="sideBarProfileName">{user?.profile?.name}</div>
+              <div className="sideBarProfileUsername">@{user?.username}</div>
             </div>
             <img
               src="/Assets/sidebar-option.png"
@@ -100,7 +103,15 @@ const SideBar = () => {
           {isOpen && (
             <div className="dropup">
               <div className="dropup-content">
-                <a href="#">Log out @YoussefMarakshy</a>
+                <a
+                  onClick={async () => {
+                    await logout();
+                    navigate('/auth');
+                  }}
+                  href="#"
+                >
+                  Log out @{user?.username}
+                </a>
               </div>
             </div>
           )}
@@ -110,4 +121,18 @@ const SideBar = () => {
   );
 };
 
+/*
+email
+: 
+"joe@gmail.com"
+id
+: 
+"6645e8cffb6726387b8549d2"
+profile
+: 
+{name: 'Joe Fathy', bio: 'https://picsum.photos/1500/500', location: '', website: '', avatar: 'https://avatar.oxro.io/avatar.png?name=joefathy', …}
+username
+: 
+"joefathy"
+*/
 export default SideBar;
