@@ -2,25 +2,25 @@
   display: flex;
   align-items: center;
   padding: 0;
-  border-bottom: 1px solid #6c757d; /* Equivalent to border-bottom border-secondary */
+  border-bottom: 1px solid #6c757d; 
   position: sticky;
   top: 0;
-  background-color: #000; /* Match the background color */
-  z-index: 100; /* Ensure it stays above other content */
+  background-color: #000; 
+  z-index: 100; 
 }
 
 .link-container {
   flex: 1;
   text-align: center;
   text-decoration: none;
-  padding: 1rem 0; /* Equivalent to padding from Bootstrap classes */
+  padding: 1rem 0; 
   position: relative;
-  font-size: 1rem; /* Adjust font size as needed */
-  font-weight: 150; /* Default font weight */
+  font-size: 1rem; 
+  font-weight: 150; 
   font-family: Gill Sans, sans-serif;
   color: #555;
   transition: background-color 0.3s, color 0.3s;
-  margin: 0; /* Remove margin */
+  margin: 0; 
 }
 
 .link-container:hover {
@@ -28,8 +28,8 @@
 }
 
 .link-container.active span {
-  color: white; /* Change color when active */
-  font-weight: bold; /* Increase font weight when active */
+  color: white; 
+  font-weight: bold; 
 }
 
 .link-container.active span::after {
@@ -49,7 +49,7 @@
   justify-content: flex-end;
   padding: 0;
   flex: 0 0 auto;
-  margin-left: 1rem; /* Add margin to create distance */
+  margin-left: 1rem; 
   position: relative;
   margin-right: 5px;
 }
@@ -69,7 +69,7 @@
 }
 
 .settings-img {
-  filter: brightness(0) invert(1); /* Makes the icon appear white */
+  filter: brightness(0) invert(1); 
 }
 
 .tooltip-container {
@@ -87,7 +87,7 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  top: 100%; /* Position below the icon */
+  top: 100%; 
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
