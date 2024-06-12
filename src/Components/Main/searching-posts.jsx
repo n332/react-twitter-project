@@ -1,45 +1,66 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SearchingAction } from '../../Redux/store/slices/SearchingPostsSlices';
-import PostList from '../Posts/postsList';
+import style from "../../styles/post-temp.module.css";
+import PostsTemp from '../Posts/PostsTemp';
+import { Helmet } from 'react-helmet';
 
 const SearchingPosts = () => {
-
     const SearchPostsArr = useSelector((state)=>(state = state.search.SearchingArr));
     const dispatch = useDispatch();
+    
+    const [loading, setLoading] = useState(true); // Add a loading state
 
-    const [posts,setPosts]=useState([]);
+    useEffect(()=>{
+        dispatch(SearchingAction()).then(() => setLoading(false)); // Update loading state when dispatch is finished
+    },[dispatch])
+
+    // loading = true
+    // check if dispatch finished (loading = false)
+        // T => check if the  SearchPostsArr>0
+                // T => display the data
+                //F => display not found
+        // F=> loading
 
     
 
-    useEffect(()=>{
-        dispatch(SearchingAction());
-    },[dispatch])
-
     return (
-        <div>
-        {/* Post component here */}
-        
-        {SearchPostsArr ? (
-            SearchPostsArr.length > 0 ? (
-                SearchPostsArr.map(post => (
-                    // import component
-                    // pass the object
-                    // handel in post component
-
-                    <div key={post._id}>
-                        <p>{post.content}</p>
-                    </div>
-                ))
+        <div style={divStyle}>        
+        {loading=== false && SearchPostsArr? ( //check if dispatch finished (loading = false) & array found
+            SearchPostsArr.length > 0 ? ( //check if the  SearchPostsArr>0
+                SearchPostsArr.map((tweet) => { //display the data
+                    return (
+                        <div className={style["posts-container"]}>
+                        <Helmet>
+                            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+                        </Helmet>
+                        <PostsTemp key = {tweet.id} tweet={tweet} ></PostsTemp>
+                        </div>
+                    )
+                }                
+                )
             ) : (
-                <p>No posts found :(</p>
+                <p>No posts found :(</p> //display not found
             )
-        ) : (
+        ) : ( //loading
             <p>Loading...</p>
         )}
+
+        {console.log(loading)}
+        {console.log(SearchPostsArr)}
 
     </div>
     );
 }
 
 export default SearchingPosts;
+
+
+const divStyle ={
+    height:'0',
+    backgroundColor:"red",
+    top:0,
+    borderRight: "1px rgba(255, 255, 255, 0.214) solid",
+    borderLeft: "1px rgba(255, 255, 255, 0.214) solid"
+
+}

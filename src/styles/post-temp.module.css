@@ -1,13 +1,4 @@
-.posts-container {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    top: 400px;
-    padding: 1rem;
-    background-color: #000;
-    margin: auto;
-    right: 2%;
-  }
+
   .red-heart {
     color: red;
   }
@@ -27,7 +18,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: 100%;
+    width: 95%;
     margin-bottom: 7px;
     right: 20%;
     border-top:1px solid #1e1e1e;

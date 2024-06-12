@@ -10,12 +10,18 @@ const Search = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const performAction = () => {
+        dispatch(SearchingAction(inputValue));
+        navigate('/searching-posts'); 
+    }
+    
     const handleEnter = async (event) => {
         if (event.key === 'Enter' && inputValue.trim() !== '') {
-            await dispatch(SearchingAction(inputValue));
-            navigate('/searching-posts');     
-         }
+            performAction();
+            performAction();
+        }
     }
+    
     return (
         <div className={styles.searchContainer}>
             <img style={{width: '10%', backgroundColor: '#000000'}} src="/Assets/SI.png" alt="" />

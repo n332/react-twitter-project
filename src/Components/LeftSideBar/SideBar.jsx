@@ -23,7 +23,7 @@ const routes = [
     alt: 'Sidebar Notifications tab',
   },
   {
-    path: '/profile',
+    path: '/profile/6643a278fdc6db9e29db2e81',
     name: 'Profile',
     icon: 'profile.png',
     alt: 'Sidebar Profile tab Icon',

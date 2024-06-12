@@ -13,6 +13,7 @@ const Home = () => {
             </div>
             <div className={styles.RightSideBar} style={{ flex: '15%', color: "white" ,marginRight:"8rem" ,marginLeft:"2rem" }}>
                 <RightSideBar />
+
             </div>
         </div>
     );

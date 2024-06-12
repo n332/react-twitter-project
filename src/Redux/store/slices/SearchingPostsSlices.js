@@ -15,13 +15,11 @@ const SearchingSlice = createSlice({
     initialState:{SearchingArr:[]},
     extraReducers:(builder)=>{
         builder.addCase(SearchingAction.fulfilled,(state,action)=>{
-            state.SearchingArr = [];
-            action.payload.forEach((item) =>{
-                state.SearchingArr.push(item);
-            });
-
+            state.SearchingArr = []
+            state.SearchingArr = action.payload
 
         })
+
     }
 })
 
