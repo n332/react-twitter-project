@@ -170,7 +170,7 @@
   color: white;
   pointer-events: none;
   transition: transform 0.3s, font-size 0.3s;
-  transform: translateY(-50%) translateY(-10px); /* Initially moved up */
+  transform: translateY(-50%) translateY(-10px); 
 }
 
 .inputContainer input:focus + label,

@@ -2,7 +2,7 @@
     border-right: 1px rgba(255, 255, 255, 0.214) solid;
     border-left: 1px rgba(255, 255, 255, 0.214) solid;
     height: 100%;
-    margin-left: 25%; /* Adjust for the fixed sidebar width */
+    margin-left: 25%; 
   }
 
   

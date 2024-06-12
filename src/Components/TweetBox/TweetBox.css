@@ -1,11 +1,10 @@
-/* Main container */
 .tweet-box {
   display: flex;
   border-bottom: 1px solid #2e2e2e;
   padding: 15px;
   background-color: #000;
   color: #fff;
-  position: relative; /* Ensure relative positioning */
+  position: relative; 
 
 }
 
@@ -115,7 +114,6 @@
   display: none;
 }
 
-/* Style the label to look like a button */
 label[for="image-upload-input"] {
   cursor: pointer;
 }

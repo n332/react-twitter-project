@@ -6,9 +6,9 @@
     z-index: 1000;
     width: 320px;
     box-shadow: 0 0 15px rgb(0, 0, 0);
-    top: 130px; /* Adjust this value to position the dropdown correctly */
-    left: -20px; /* Adjust this value to position the dropdown towards the sidebar */
-    border: 1px solid #000000; /* Border to match the design */
+    top: 130px; 
+    left: -20px; 
+    border: 1px solid #000000; 
   }
   
   .reply-header {
@@ -34,7 +34,7 @@
     cursor: pointer;
     transition: background-color 0.3s;
     border-radius: 8px;
-    color: #ffffff; /* Ensure the text color is white */
+    color: #ffffff; 
     font-size: 0.95rem;
     text-align: left;
     font-weight: bold;
@@ -47,23 +47,23 @@
   
   .reply-option i {
     
-    color: #000000; /* Ensure the icon color is blue */
+    color: #000000; 
     font-size: 1rem;
     margin : 10px;
     
   }
   
   .check-icon {
-    color: #1da1f2; /* Ensure the check icon color is blue */
+    color: #1da1f2; 
   }
   
   .reply-option .text-primary {
-    color: #1da1f2; /* Ensure the primary text color is blue */
+    color: #1da1f2; 
     text-align: left;
   }
   
   .reply-options .reply-header,
   .reply-options .reply-subheader {
-    padding: 0 12px; /* Ensure consistent padding */
+    padding: 0 12px; 
   }
   
