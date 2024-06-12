@@ -3,6 +3,8 @@ import SearchingReducer from "./slices/SearchingPostsSlices"
 import TrendingListReducer from "./slices/TrendingListSlice"
 import TrendingPostsReducer from "./slices/TrendingPostsSlice"
 import tweetsSlice from "./slices/tweetsSlice";
+import bookmarkReducer from './slices/bookmarksSlice';
+
 
 const store = configureStore({
 
@@ -10,7 +12,8 @@ const store = configureStore({
         search: SearchingReducer,
         trendingList:TrendingListReducer,
         trendingPosts:TrendingPostsReducer,
-        tweets: tweetsSlice
+        tweets: tweetsSlice,
+        bookmarks: bookmarkReducer,
     }
 
 })

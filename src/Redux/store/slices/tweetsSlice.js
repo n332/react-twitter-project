@@ -10,16 +10,13 @@ export const fetchTweets = createAsyncThunk('tweets/fetchTweets', async () => {
   return response.data;
 });
 
-export const addTweet = createAsyncThunk('tweets/addTweet', async (tweetContent) => {
-  const response = await axios.post(`${API_BASE_URL}/api/tweets`, {
-    content: tweetContent,
-    userId: '6643a278fdc6db9e29db2e81',
-  });
+export const addTweet = createAsyncThunk('tweets/addTweet', async (tweetData) => {
+  const response = await axios.post(`${API_BASE_URL}/api/tweets`, tweetData);
   return response.data;
 });
 
 export const toggleLike = createAsyncThunk('tweets/toggleLike', async ({ id, userId }) => {
-  const response = await axios.post(`${API_BASE_URL}/api/tweets/${id}/like`, { userId });
+  const response = await axios.post(`${API_BASE_URL}/api/tweets/tweet/${id}/like`, { userId });
   return { id, likes: response.data.likes };
 });
 

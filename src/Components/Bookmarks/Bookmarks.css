@@ -1,12 +1,42 @@
-.posts-container {
+.bookmarks-container {
   display: flex;
   flex-direction: column;
   gap: 0;
   padding: 0;
   margin: 0;
   background-color: #000;
-  font-family: 'Arial', 'Roboto', 'Helvetica', 'Segoe UI';
-  
+}
+
+.bookmarks-header {
+  background-color: #000000;
+  color: #fff;
+  padding: 1rem;
+  border-bottom: 1px solid #2e2e2e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.header-text p {
+  margin: 0;
+  color: #888;
+}
+
+.header-options i {
+  color: #888;
+  cursor: pointer;
 }
 
 .tweet {
@@ -21,7 +51,6 @@
   transition: background-color 0.3s;
   color: #fff; 
   text-align: left;
-  
 }
 
 .tweet:hover {
@@ -30,70 +59,48 @@
 
 .tweet-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.5rem;
-  position: relative;
 }
 
 .profile-img {
-  width: 10px; 
-  height: 10px; 
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
 }
 
 .tweet-user-info {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  margin-left: 5px; 
+  margin-bottom: 5px;
 }
 
-.user-details {
+.tweet-user-info > div {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex-wrap: wrap;
-  font-size: 1rem;
-  margin: 0 !important;
 }
 
 .tweet-user-name {
   font-weight: bold;
   color: #fff; 
-  margin-top: 0.3rem;
+  margin-bottom: 5px;
 }
 
-.verified-icon img {
-  width: 16px;
-  height: 16px;
-  margin-left: 5px;
+.tweet-user-handle {
+  color: #888;
 }
 
-.tweet-user-handle,
 .tweet-timestamp {
   color: #888;
-}
-
-.tweet-timestamp{
-  font-size: 1rem !important;
-  margin-top: 0.1580rem !important;
-}
-
-.tweet-options {
-  position: absolute;
-  right: 0;
-  top: 0;
-  cursor: pointer;
-  color: #888;
+  font-size: 0.85rem;
 }
 
 .tweet-content {
   display: flex;
   flex-direction: column;
-  margin-left: 63px; 
   gap: 0.5rem;
   color: #fff; 
-  margin-top: 0;
 }
 
 .tweet-image-container {
@@ -104,7 +111,7 @@
 }
 
 .tweet-image {
-  width: 50%;
+  width: 100%;
   height: auto;
   display: block;
   border-radius: 10px;
@@ -134,4 +141,8 @@
 
 .tweet-action i:hover {
   color: #1da1f2;
+}
+
+.green-tweet {
+  color: green;
 }

@@ -4,6 +4,12 @@
   display: flex;
   justify-content: end;
   padding-bottom: 10px;
+  height: 95vh;
+  position: fixed; /* Make the sidebar fixed */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure it is on top of other content */
+  overflow-y: auto; /* Enable scrolling if content overflows */
 }
 
 .sideBarSplitter {
@@ -77,12 +83,14 @@
   background-color: #1da1f2;
   color: #fff;
   border: none;
-  width: 90%;
+  width: 85%;
   padding: 10px 0;
-  border-radius: 20px;
+  border-radius: 30px;
   cursor: pointer;
   font-size: 18px;
   transition-duration: 250ms;
+  height: 3.7rem;
+  
 }
 
 .post-button:hover {

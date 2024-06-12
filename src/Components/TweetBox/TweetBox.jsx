@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTweet } from '../../Redux/store/slices/tweetsSlice';
+import imageCompression from 'browser-image-compression';
 import './TweetBox.css';
 import ReplyOptions from './ReplyOptions';
 
@@ -8,15 +9,48 @@ const TweetBox = () => {
   const [tweetContent, setTweetContent] = useState('');
   const [showOptions, setShowOptions] = useState(false);
   const [replyText, setReplyText] = useState('Everyone can reply');
+  const [image, setImage] = useState(null);
   const dispatch = useDispatch();
 
   const handleInput = (event) => {
     setTweetContent(event.target.value);
   };
 
+  const handleImageUpload = async (event) => {
+    const file = event.target.files[0];
+    if (file && file.size <= 20 * 1024 * 1024) { // Limit file size to 2MB
+      const options = {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true,
+        fileType: 'image/jpeg', // Ensure the output is in JPEG format
+        initialQuality: 0.8 // Adjust quality as needed
+      };
+      try {
+        const compressedFile = await imageCompression(file, options);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setImage(reader.result);
+        };
+        reader.readAsDataURL(compressedFile);
+      } catch (error) {
+        console.error('Error while compressing the image', error);
+      }
+    } else {
+      alert('File size is too large. Please upload an image less than 2MB.');
+    }
+  };
+
   const postTweet = () => {
-    dispatch(addTweet(tweetContent));
+    const tweetData = {
+      content: tweetContent,
+      userId: '6643a278fdc6db9e29db2e81', // Make sure this is the correct userId
+      image: image || undefined // Send image if available
+    };
+    dispatch(addTweet(tweetData));
+    console.log(image)
     setTweetContent('');
+    setImage(null);
   };
 
   const toggleReplyOptions = () => {
@@ -35,10 +69,18 @@ const TweetBox = () => {
         <textarea
           id="tweet-textarea"
           className="tweet-textarea"
-          placeholder="What's happening?!"
+          placeholder="What is happening?!"
           value={tweetContent}
           onChange={handleInput}
         ></textarea>
+        {image && <img src={image} alt="Tweet" className="tweet-image-preview" />}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+          className="image-upload-input"
+          id="image-upload-input"
+        />
         <div id="reply-info" className="reply-info">
           <i className="material-icons reply-icon">public</i>
           <span className="reply-text" onClick={toggleReplyOptions}>
@@ -48,7 +90,9 @@ const TweetBox = () => {
         <hr className="separator" />
         <div className="tweet-actions">
           <div className="icons-container">
-            <i className="material-icons tweet-icon" title="Media">image</i>
+            <label htmlFor="image-upload-input">
+              <i className="material-icons tweet-icon" title="Media">image</i>
+            </label>
             <i className="material-icons tweet-icon" title="GIF">gif</i>
             <i className="material-icons tweet-icon" title="Poll">bar_chart</i>
             <i className="material-icons tweet-icon" title="Emoji">sentiment_satisfied_alt</i>

@@ -12,16 +12,19 @@
   }
   
   .reply-header {
-    font-size: 1rem;
+    font-size: 0.7rem;
     font-weight: bold;
     color: #fff;
     margin-bottom: 5px;
+    font-size: large;
+    text-align: left;
   }
   
   .reply-subheader {
-    font-size: 0.875rem;
+    font-size :  0.85rem ; 
     color: #8899a6;
     margin-bottom: 15px;
+    text-align: left;
   }
   
   .reply-option {
@@ -31,8 +34,11 @@
     cursor: pointer;
     transition: background-color 0.3s;
     border-radius: 8px;
-    color: #0a7ec6; /* Ensure the text color is white */
-    font-size: 0.5rem;
+    color: #ffffff; /* Ensure the text color is white */
+    font-size: 0.95rem;
+    text-align: left;
+    font-weight: bold;
+  
   }
   
   .reply-option:hover {
@@ -44,15 +50,16 @@
     color: #000000; /* Ensure the icon color is blue */
     font-size: 1rem;
     margin : 10px;
+    
   }
   
   .check-icon {
-    margin-left: auto;
     color: #1da1f2; /* Ensure the check icon color is blue */
   }
   
   .reply-option .text-primary {
     color: #1da1f2; /* Ensure the primary text color is blue */
+    text-align: left;
   }
   
   .reply-options .reply-header,

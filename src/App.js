@@ -7,6 +7,7 @@ import SearchingPosts from './Components/Main/searching-posts';
 import TrendingPosts from './Components/Main/trending-posts';
 import MainContent from './Components/MainContent/MainContent';
 import ProfileComponent from "./Components/Profile/Profile";
+import Bookmarks from './Components/Bookmarks/Bookmarks';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
             <Route index element={<MainContent />} />
             <Route path='trending-posts/:hashtag' element={<TrendingPosts />} />
             <Route path='searching-posts' element={<SearchingPosts />} />
-            {/* Nourhan components here */}
             <Route path='/profile/:id' element={<ProfileComponent/>} />
+            <Route path='/bookmarks' element={<Bookmarks />} /> {/* Add the Bookmarks route */}
           </Route>
         </Routes>
       </Provider>
