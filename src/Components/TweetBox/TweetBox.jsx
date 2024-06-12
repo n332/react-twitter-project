@@ -64,7 +64,7 @@ const TweetBox = () => {
 
   return (
     <div className="tweet-box">
-      <img src="/assets/person1.jpeg" alt="Profile Photo" className="user-img" />
+      <img src="/assets/person1.jpeg" alt="Profile" className="user-img" />
       <div className="tweet-content-container">
         <textarea
           id="tweet-textarea"

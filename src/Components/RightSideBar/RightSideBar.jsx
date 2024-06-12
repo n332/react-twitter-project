@@ -4,7 +4,7 @@ import Trending from './Trending.jsx';
 
 const RightSideBar = () => {
     return (
-        <div>
+        <div style={styleDiv} >
             <Search></Search>
             <Trending></Trending>
         </div>
@@ -12,3 +12,8 @@ const RightSideBar = () => {
 }
 
 export default RightSideBar;
+
+const styleDiv={
+    position:"relative",
+    left:"20%"
+}
